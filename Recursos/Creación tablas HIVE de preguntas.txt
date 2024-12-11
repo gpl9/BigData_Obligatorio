@@ -1,0 +1,30 @@
+-- 2) Top 5 productos más vendidos por ciudad.
+CREATE TABLE ranked_products_city
+STORED AS PARQUET
+LOCATION '/obligatorio/data/data_analytics/ranked_products_city'
+AS
+WITH ranked_products AS (
+    SELECT 
+        dc.customer_city AS city,
+        fo.product_id,
+        COUNT(fo.product_id) AS product_count,
+        ROW_NUMBER() OVER (PARTITION BY dc.customer_city ORDER BY COUNT(fo.product_id) DESC) AS rank
+    FROM fact_order fo
+    JOIN dim_customers dc ON dc.customer_id = fo.customer_id
+    GROUP BY dc.customer_city, fo.product_id
+)
+SELECT city, product_id, product_count, rank
+FROM ranked_products
+WHERE rank <= 5
+ORDER BY city, rank;
+
+
+-- 5) ¿Cuál es el tiempo promedio entre la aprobación de un pedido y la entrega al cliente?
+
+CREATE TABLE avg_time_order_delivered_customer_vs_order_approved_at
+STORED AS PARQUET
+LOCATION '/obligatorio/data/data_analytics/avg_time_order_delivered_customer_vs_order_approved_at'
+AS
+SELECT COUNT(*) AS total_orders, ROUND(AVG(diff_order_delivered_customer_vs_order_approved_at), 2) AS `average_time_days`
+FROM fact_order
+WHERE diff_order_delivered_customer_vs_order_approved_at IS NOT NULL;

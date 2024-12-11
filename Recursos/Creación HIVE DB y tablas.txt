@@ -1,0 +1,121 @@
+hive
+
+CREATE DATABASE IF NOT EXISTS obligatorio;
+
+
+USE obligatorio;
+
+
+CREATE EXTERNAL TABLE dim_products
+(
+product_id STRING,
+product_category_name STRING,
+product_category_name_english STRING,
+weight_g INT,
+length_cm INT,
+height_cm INT,
+width_cm INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_products.csv/';
+
+
+CREATE EXTERNAL TABLE dim_reviews
+(
+review_id STRING,
+order_id STRING,
+review_score INT,
+review_comment_title STRING,
+review_comment_message STRING,
+review_creation_date STRING,
+review_answer_timestamp STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_reviews.csv/';
+
+
+CREATE EXTERNAL TABLE dim_payments
+(
+payment_id BIGINT,
+order_id STRING,
+payment_type STRING,
+payment_installments INT,
+payment_value DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_payments.csv/';
+
+
+CREATE EXTERNAL TABLE dim_items
+(
+order_id STRING,
+order_item_id INT,
+product_id STRING,
+seller_id STRING,
+shipping_limit_date STRING,
+price DOUBLE,
+freight_value DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_items.csv/';
+
+
+CREATE EXTERNAL TABLE dim_sellers
+(
+seller_id STRING,
+seller_city STRING,
+seller_state STRING,
+geolocation_lat STRING,
+geolocation_lng STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_sellers.csv/';
+
+
+CREATE EXTERNAL TABLE dim_customers
+(
+customer_id STRING,
+customer_unique_id STRING,
+customer_city STRING,
+customer_state STRING,
+geolocation_lat STRING,
+geolocation_lng STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/dim_customers.csv/';
+
+
+CREATE EXTERNAL TABLE fact_order
+(
+order_id STRING,
+product_id STRING,
+customer_id STRING,
+seller_id STRING,
+review_id STRING,
+payment_id BIGINT,
+order_purchase_timestamp STRING,
+order_approved_at STRING,
+order_delivered_carrier_date STRING,
+order_delivered_customer_date STRING,
+total_price DOUBLE,
+total_freight_value DOUBLE,
+total_payment_value DOUBLE,
+diff_order_delivered_customer_vs_order_approved_at DOUBLE,
+total_items BIGINT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/obligatorio/data/processed/fact_order.csv/';
