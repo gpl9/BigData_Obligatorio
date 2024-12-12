@@ -1239,15 +1239,15 @@
                     </entry>
                     <entry>
                         <key>generate-ff-custom-text</key>
-                        <value>https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_customers_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_geolocation_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_order_items_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_order_payments_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_order_reviews_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_orders_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_products_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/olist_sellers_dataset.csv
-https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/datasets/product_category_name_translation.csv</value>
+                        <value>https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_customers_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_geolocation_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_order_items_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_order_payments_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_order_reviews_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_orders_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_products_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/olist_sellers_dataset.csv
+https://raw.githubusercontent.com/gpl9/BigData_Obligatorio/refs/heads/master/Recursos/datasets/product_category_name_translation.csv</value>
                     </entry>
                     <entry>
                         <key>character-set</key>
